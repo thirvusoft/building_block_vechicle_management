@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include building_block_vechicle_management *.css
+recursive-include building_block_vechicle_management *.csv
+recursive-include building_block_vechicle_management *.html
+recursive-include building_block_vechicle_management *.ico
+recursive-include building_block_vechicle_management *.js
+recursive-include building_block_vechicle_management *.json
+recursive-include building_block_vechicle_management *.md
+recursive-include building_block_vechicle_management *.png
+recursive-include building_block_vechicle_management *.py
+recursive-include building_block_vechicle_management *.svg
+recursive-include building_block_vechicle_management *.txt
+recursive-exclude building_block_vechicle_management *.pyc
