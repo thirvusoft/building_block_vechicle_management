@@ -32,6 +32,10 @@ app_license = "MIT"
 
 # include js in doctype views
 # doctype_js = {"doctype" : "public/js/doctype.js"}
+doctype_js = {
+    "Vehicle Log":"/custom/js/vehicle_log.js",
+    "Vehicle":"/custom/js/vehicle.js",
+    }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -58,6 +62,7 @@ app_license = "MIT"
 
 # before_install = "building_block_vechicle_management.install.before_install"
 # after_install = "building_block_vechicle_management.install.after_install"
+after_install = "building_block_vechicle_management.after_install.after_install"
 
 # Uninstallation
 # ------------
@@ -102,6 +107,24 @@ app_license = "MIT"
 # 		"on_trash": "method"
 #	}
 # }
+
+doc_events = {
+	"Vehicle Log":{
+		"on_update_after_submit": "building_block_retail.building_block_retail.custom.py.vehicle_log.onsubmit",
+		"on_submit": ["building_block_retail.building_block_retail.custom.py.vehicle_log.onsubmit",
+					  "building_block_retail.building_block_retail.custom.py.vehicle_log.update_transport_cost",
+					  "building_block_retail.building_block_retail.custom.py.vehicle_log.vehicle_log_draft"],
+		"on_cancel":["building_block_retail.building_block_retail.custom.py.vehicle_log.onsubmit",
+					 "building_block_retail.building_block_retail.custom.py.vehicle_log.update_transport_cost"],
+		"validate": "building_block_retail.building_block_retail.custom.py.vehicle_log.validate"
+	},
+	"Vehicle":{
+        "validate":"building_block_retail.building_block_retail.custom.py.vehicle.reference_date",
+    },
+ "Delivery Note":{
+  		"before_submit":"building_block_retail.building_block_retail.custom.py.vehicle_log.vehicle_log_creation"
+	}
+}
 
 # Scheduled Tasks
 # ---------------
